@@ -5,37 +5,37 @@ import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
-public class Oficina {
+public class Patrimonio {
 
     @Id
     @GeneratedValue( strategy= GenerationType.IDENTITY )
     private int id;
 
     @Column
-    private String departamento;
+    private String bien;
 
     @Column
-    private String provincia;
-
-    @Column
-    private String oficina;
+    private String descripcion;
 
     @Column
     private Character estado;
 
     @Column
+    private String observacion;
+
+    @Column
     private Date created_at;
 
-    public Oficina() {
+    public Patrimonio() {
         super();
     }
 
-    public Oficina(int id, String departamento, String provincia, String oficina, Character estado, Date created_at) {
+    public Patrimonio(int id, String bien, String descripcion, Character estado, String observacion, Date created_at) {
         this.id = id;
-        this.departamento = departamento;
-        this.provincia = provincia;
-        this.oficina = oficina;
+        this.bien = bien;
+        this.descripcion = descripcion;
         this.estado = estado;
+        this.observacion = observacion;
         this.created_at = created_at;
     }
 
@@ -47,28 +47,20 @@ public class Oficina {
         this.id = id;
     }
 
-    public String getDepartamento() {
-        return departamento;
+    public String getBien() {
+        return bien;
     }
 
-    public void setDepartamento(String departamento) {
-        this.departamento = departamento;
+    public void setBien(String bien) {
+        this.bien = bien;
     }
 
-    public String getProvincia() {
-        return provincia;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setProvincia(String provincia) {
-        this.provincia = provincia;
-    }
-
-    public String getOficina() {
-        return oficina;
-    }
-
-    public void setOficina(String oficina) {
-        this.oficina = oficina;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public Character getEstado() {
@@ -77,6 +69,14 @@ public class Oficina {
 
     public void setEstado(Character estado) {
         this.estado = estado;
+    }
+
+    public String getObservacion() {
+        return observacion;
+    }
+
+    public void setObservacion(String observacion) {
+        this.observacion = observacion;
     }
 
     public Date getCreated_at() {

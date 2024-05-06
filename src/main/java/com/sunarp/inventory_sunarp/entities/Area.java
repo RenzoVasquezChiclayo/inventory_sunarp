@@ -5,25 +5,29 @@ import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
-public class Rol {
+public class Area {
 
     @Id
-    @GeneratedValue( strategy= GenerationType.IDENTITY )
+    @GeneratedValue( strategy= GenerationType.IDENTITY)
     private int id;
 
     @Column
-    private String rol;
+    private String area;
+
+    @Column
+    private Character estado;
 
     @Column
     private Date created_at;
 
-    public Rol() {
+    public Area() {
         super();
     }
 
-    public Rol(int id, String rol, Date created_at) {
+    public Area(int id, String area, Character estado, Date created_at) {
         this.id = id;
-        this.rol = rol;
+        this.area = area;
+        this.estado = estado;
         this.created_at = created_at;
     }
 
@@ -35,12 +39,20 @@ public class Rol {
         this.id = id;
     }
 
-    public String getRol() {
-        return rol;
+    public String getArea() {
+        return area;
     }
 
-    public void setRol(String rol) {
-        this.rol = rol;
+    public void setArea(String area) {
+        this.area = area;
+    }
+
+    public Character getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Character estado) {
+        this.estado = estado;
     }
 
     public Date getCreated_at() {

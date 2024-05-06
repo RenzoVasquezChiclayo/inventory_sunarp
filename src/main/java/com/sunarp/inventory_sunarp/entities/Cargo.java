@@ -5,28 +5,29 @@ import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
-public class Usuario {
+public class Cargo {
+
     @Id
     @GeneratedValue( strategy= GenerationType.IDENTITY )
     private int id;
 
-    @Column(unique=true)
-    private String usuario;
+    @Column
+    private String cargo;
 
     @Column
-    private String password;
+    private Character estado;
 
     @Column
     private Date created_at;
 
-    public Usuario() {
+    public Cargo() {
         super();
     }
 
-    public Usuario(int id, String usuario, String password, Date created_at) {
+    public Cargo(int id, Character estado, String cargo, Date created_at) {
         this.id = id;
-        this.usuario = usuario;
-        this.password = password;
+        this.estado = estado;
+        this.cargo = cargo;
         this.created_at = created_at;
     }
 
@@ -38,20 +39,20 @@ public class Usuario {
         this.id = id;
     }
 
-    public String getUsuario() {
-        return usuario;
+    public String getCargo() {
+        return cargo;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
     }
 
-    public String getPassword() {
-        return password;
+    public Character getEstado() {
+        return estado;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setEstado(Character estado) {
+        this.estado = estado;
     }
 
     public Date getCreated_at() {
