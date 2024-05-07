@@ -44,23 +44,27 @@ public class Persona {
     @Column
     private Date created_at;
 
+    @OneToOne
+    private Cargo cargo;
+
     public Persona() {
         super();
     }
 
-    public Persona(int id, String dni, String nombres, String apellidos, Character sexo, Date fecha_nacimiento, Character celular, Character telefono, String direccion, String correo, Character estado, Date created_at) {
+    public Persona(int id, String dni, String nombres, String apellidos, Character sexo, Date fecha_nacimiento, Character telefono, Character celular, String direccion, String correo, Character estado, Date created_at, Cargo cargo) {
         this.id = id;
         this.dni = dni;
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.sexo = sexo;
         this.fecha_nacimiento = fecha_nacimiento;
-        this.celular = celular;
         this.telefono = telefono;
+        this.celular = celular;
         this.direccion = direccion;
         this.correo = correo;
         this.estado = estado;
         this.created_at = created_at;
+        this.cargo = cargo;
     }
 
     public int getId() {
@@ -95,20 +99,20 @@ public class Persona {
         this.apellidos = apellidos;
     }
 
-    public Character getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(Character sexo) {
-        this.sexo = sexo;
-    }
-
     public Date getFecha_nacimiento() {
         return fecha_nacimiento;
     }
 
     public void setFecha_nacimiento(Date fecha_nacimiento) {
         this.fecha_nacimiento = fecha_nacimiento;
+    }
+
+    public Character getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(Character sexo) {
+        this.sexo = sexo;
     }
 
     public Character getCelular() {
@@ -157,5 +161,13 @@ public class Persona {
 
     public void setCreated_at(Date created_at) {
         this.created_at = created_at;
+    }
+
+    public Cargo getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(Cargo cargo) {
+        this.cargo = cargo;
     }
 }

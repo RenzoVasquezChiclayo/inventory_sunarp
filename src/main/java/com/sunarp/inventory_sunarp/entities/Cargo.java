@@ -20,15 +20,19 @@ public class Cargo {
     @Column
     private Date created_at;
 
+    @ManyToOne
+    private Area area;
+
     public Cargo() {
         super();
     }
 
-    public Cargo(int id, Character estado, String cargo, Date created_at) {
+    public Cargo(int id, Character estado, String cargo, Date created_at, Area area) {
         this.id = id;
         this.estado = estado;
         this.cargo = cargo;
         this.created_at = created_at;
+        this.area = area;
     }
 
     public int getId() {
@@ -61,5 +65,13 @@ public class Cargo {
 
     public void setCreated_at(Date created_at) {
         this.created_at = created_at;
+    }
+
+    public Area getArea() {
+        return area;
+    }
+
+    public void setArea(Area area) {
+        this.area = area;
     }
 }

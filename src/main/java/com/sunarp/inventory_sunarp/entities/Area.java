@@ -20,15 +20,19 @@ public class Area {
     @Column
     private Date created_at;
 
+    @ManyToOne
+    private Oficina oficina;
+
     public Area() {
         super();
     }
 
-    public Area(int id, String area, Character estado, Date created_at) {
+    public Area(int id, String area, Character estado, Date created_at, Oficina oficina) {
         this.id = id;
         this.area = area;
         this.estado = estado;
         this.created_at = created_at;
+        this.oficina = oficina;
     }
 
     public int getId() {
@@ -61,5 +65,13 @@ public class Area {
 
     public void setCreated_at(Date created_at) {
         this.created_at = created_at;
+    }
+
+    public Oficina getOficina() {
+        return oficina;
+    }
+
+    public void setOficina(Oficina oficina) {
+        this.oficina = oficina;
     }
 }

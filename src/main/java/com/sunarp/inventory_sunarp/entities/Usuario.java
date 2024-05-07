@@ -3,6 +3,7 @@ package com.sunarp.inventory_sunarp.entities;
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 public class Usuario {
@@ -19,15 +20,11 @@ public class Usuario {
     @Column
     private Date created_at;
 
+    @ManyToMany(targetEntity=Rol.class)
+    private Set Rol;
+
     public Usuario() {
         super();
-    }
-
-    public Usuario(int id, String usuario, String password, Date created_at) {
-        this.id = id;
-        this.usuario = usuario;
-        this.password = password;
-        this.created_at = created_at;
     }
 
     public int getId() {
@@ -60,5 +57,13 @@ public class Usuario {
 
     public void setCreated_at(Date created_at) {
         this.created_at = created_at;
+    }
+
+    public Set getRol() {
+        return Rol;
+    }
+
+    public void setRol(Set rol) {
+        Rol = rol;
     }
 }

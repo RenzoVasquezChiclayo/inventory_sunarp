@@ -26,17 +26,21 @@ public class Patrimonio {
     @Column
     private Date created_at;
 
+    @ManyToOne
+    private Persona persona;
+
     public Patrimonio() {
         super();
     }
 
-    public Patrimonio(int id, String bien, String descripcion, Character estado, String observacion, Date created_at) {
+    public Patrimonio(int id, String bien, String descripcion, Character estado, String observacion, Date created_at, Persona persona) {
         this.id = id;
         this.bien = bien;
         this.descripcion = descripcion;
         this.estado = estado;
         this.observacion = observacion;
         this.created_at = created_at;
+        this.persona = persona;
     }
 
     public int getId() {
@@ -85,5 +89,13 @@ public class Patrimonio {
 
     public void setCreated_at(Date created_at) {
         this.created_at = created_at;
+    }
+
+    public Persona getPersona() {
+        return persona;
+    }
+
+    public void setPersona(Persona persona) {
+        this.persona = persona;
     }
 }
